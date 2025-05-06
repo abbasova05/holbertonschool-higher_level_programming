@@ -3,11 +3,11 @@ def list_division(my_list_1, my_list_2, list_length):
     result = []
     for i in range(list_length):
         try:
-            if i >= len(my_list_1) or i >= len(my_list_2):
-                raise IndexError
-            if not isinstance(my_list_1[i], (int, float)) or not isinstance(my_list_2[i], (int, float)):
-                raise TypeError
-            result.append(my_list_1[i] / my_list_2[i])
+            num1 = my_list_1[i]
+            num2 = my_list_2[i]
+            if not isinstance(num1, (int, float)) or not isinstance(num2, (int, float)):
+                raise TypeError("wrong type")
+            result.append(num1 / num2)
         except ZeroDivisionError:
             print("division by 0")
             result.append(0)
@@ -20,4 +20,3 @@ def list_division(my_list_1, my_list_2, list_length):
         finally:
             pass
     return result
-
