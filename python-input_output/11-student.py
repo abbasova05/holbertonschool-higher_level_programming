@@ -1,35 +1,49 @@
 #!/usr/bin/python3
-"""Student class that can be serialized to and deserialized from JSON."""
+"""Defines a Student class with JSON serialization and deserialization."""
+
 
 class Student:
+    """Student class that can be serialized to and from JSON."""
+
     def __init__(self, first_name, last_name, age):
-        """Initialize Student with first_name, last_name, and age."""
+        """
+        Initialize a new Student instance.
+
+        Args:
+            first_name (str): The student's first name.
+            last_name (str): The student's last name.
+            age (int): The student's age.
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
         """
-        Return the dictionary representation of the Student instance.
+        Retrieve a dictionary representation of the Student instance.
 
-        If attrs is a list of strings, only those attributes are returned.
-        Otherwise, return all attributes.
+        Args:
+            attrs (list, optional): List of attribute names to retrieve.
+                If None, retrieve all attributes.
+
+        Returns:
+            dict: Dictionary of attributes filtered by attrs or all attributes.
         """
         if attrs is None:
             return self.__dict__.copy()
-        else:
-            new_dict = {}
-            for attr in attrs:
-                if hasattr(self, attr):
-                    new_dict[attr] = getattr(self, attr)
-            return new_dict
+
+        filtered = {}
+        for attr in attrs:
+            if hasattr(self, attr):
+                filtered[attr] = getattr(self, attr)
+        return filtered
 
     def reload_from_json(self, json):
         """
-        Replace all attributes of the Student instance with the values in json.
+        Replace all attributes of the Student instance from a JSON dictionary.
 
         Args:
-            json (dict): Dictionary with keys as attribute names and values as new attribute values.
+            json (dict): Dictionary containing attribute names and values.
         """
         for key, value in json.items():
             setattr(self, key, value) 
