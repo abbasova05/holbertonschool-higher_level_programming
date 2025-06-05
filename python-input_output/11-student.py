@@ -1,34 +1,26 @@
 #!/usr/bin/python3
-"""
-This module defines a Student class.
-It includes methods for serializing and deserializing instances to and from JSON format.
-"""
+"""Defines a Student class with JSON serialization and deserialization."""
 
 
 class Student:
-    """Represents a student with first name, last name, and age."""
+    """Represents a student."""
 
     def __init__(self, first_name, last_name, age):
-        """Initializes a Student instance."""
+        """Initialize a new Student instance."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
+        """Return dictionary representation of the Student.
+        If attrs is a list of strings, return only those attributes.
+        Otherwise, return all public attributes.
         """
-        Returns a dictionary representation of a Student instance.
-        If attrs is a list of strings, only attribute names contained in this list are retrieved.
-        """
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {
-                key: getattr(self, key)
-                for key in attrs if hasattr(self, key)
-            }
+        if isinstance(attrs, list) and all(type(attr) == str for attr in attrs):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
 
     def reload_from_json(self, json):
-        """
-        Replaces all attributes of the Student instance based on a provided dictionary.
-        """
+        """Replace all attributes of the Student instance from a dictionary."""
         for key, value in json.items():
             setattr(self, key, value)
