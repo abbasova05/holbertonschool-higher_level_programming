@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/python3usr/bin/
 import json
 
 

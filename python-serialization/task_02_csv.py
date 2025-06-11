@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-from ast import Try
 import csv
+import json
 
+def convert_csv_to_json(csv_filename):
+    try:
+        with open(csv_filename, mode='r', encoding='utf-8') as csv_file:
+            reader = csv.DictReader(csv_file)
+            data = list(reader)
 
-class DictReader:
-    def convert_csv_to_json(csv_filename):
-    with open(csv_filename, "r") as fcvsfile:
-        reader = csv.DictReader(cvsfile)
+        with open('data.json', mode='w', encoding='utf-8') as json_file:
+            json.dump(data, json_file, indent=4)
 
-    with open(data.json, "w") as jsonfile:
-        json.dump(data.json, write)
-
-    return True
-except FileNotFoundError:
-
-
-
-
-
-
-    
+        return True
+    except FileNotFoundError:
+        return False
+    except Exception:
+        return False
