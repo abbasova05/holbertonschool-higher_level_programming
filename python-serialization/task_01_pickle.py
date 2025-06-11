@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Define a class Square."""
 import pickle
+"""Define a class Square."""
 
 
 class CustomObject:
@@ -17,7 +17,7 @@ class CustomObject:
 
     def serialize(self, filename):
         """Initialize Square with size attribute"""
-        with open(filename, "ab") as f:
+        with open(filename, "wb") as f:
             pickle.dump(self, f)
 
     @classmethod
@@ -25,4 +25,4 @@ class CustomObject:
         """Initialize Square with size attribute"""
         with open(filename, "rb") as f:
             data = pickle.load(f)
-            return cls(data)
+            return data
