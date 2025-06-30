@@ -1,6 +1,3 @@
-from fileinput import filename
-
-
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
         print(f"Error: Template should be a string but got {type(template).__name__}")
@@ -35,5 +32,5 @@ def generate_invitations(template, attendees):
                 f.write(invitation_text)
         except Exception as e:
             print(f"Failed to write {filename}: {e}")
-            
+
 
