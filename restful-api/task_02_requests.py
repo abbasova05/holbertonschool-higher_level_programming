@@ -29,3 +29,6 @@ def fetch_and_save_posts():
             writer.writerows(data)
     else:
         print("Failed to fetch posts for CSV saving.")
+
+fetch_and_print_posts()
+fetch_and_save_posts()

@@ -1,10 +1,19 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
-users = [
-    {"id": 1, "ad": "Tahmina", "yas": 20}
-    {"id": 2, "ad": "Zehra", "yas": 18}
-]
+@app.route("/", methods=["GET", "POST"])
+def home():
+    if request.method == "POST":
+        ad = request.form.get("ad")
+        return f"Salam, {ad}!"
+    else:
+        return '''
+        <form method="POST">
+        Adiniz: <input type="text" name="ad">
+        <input type="submit" value="Göndər">
+        </form>
+        '''
 
-@app.route('/')
+if __name__ == "__main__":
+    app.run(port=5022)  
