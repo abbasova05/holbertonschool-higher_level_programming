@@ -27,7 +27,7 @@ def elaqe():
     return """
     <h1>Əlaqə</h1>
     <p>Email: tahmina@example.com</p>
-    <a href="/">Gedawdri qayıt</a>
+    <a href="/">Geri qayıt</a>
     """
 
 # Serveri işə sal
