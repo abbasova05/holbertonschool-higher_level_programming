@@ -1,5 +1,10 @@
 {
     "python.analysis.extraPaths": [
+        "./restful-api/task_04_",
+        "./restful-api/task_04_",
+        "./restful-api/task_04_",
         "./restful-api/task_04_"
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
 }

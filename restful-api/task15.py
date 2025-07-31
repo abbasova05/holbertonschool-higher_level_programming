@@ -6,10 +6,10 @@ app = Flask(__name__)
 def home():
     return """
     <h1 style="text-align: center;">Ilk baxissss</h1>
-    <a href="/elave">sistemmmmm</a><br<
+    <a href="/elave">sistemmmmm</a><br>
     """
 
-@app.route("/elave", methods=["GET", "POST", "PUT", "DELETE"])
+@app.route("/elave", methods=["GET", "POST"])
 def elave():
     if request.method == "POST":
         ad = request.form.get("ad")
@@ -27,7 +27,7 @@ def elave():
         Adiniz: <input type="text" name="ad">
         <input type="submit" value="Göndər">
         </form>
-        <form method="PUT">
+        <form method="POST">
         Yeni adiniz: <input type="text" name="yeniad">
         <input type="submit" value="gonder">
         </form>

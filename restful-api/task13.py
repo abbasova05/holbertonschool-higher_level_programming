@@ -23,15 +23,14 @@ def blog():
             mesaj = "Post uğurla əlavə edildi!"
         else:
             mesaj = "Boş buraxmayın!"
-
-    # Blog yazılarını oxu
+            
     try:
         with open("blog.csv", newline='', encoding="utf-8") as f:
             postlar = list(csv.reader(f))
     except FileNotFoundError:
         postlar = []
 
-    # HTML yarat
+
     html = f'''
     <h2>Sadə Blog Sistemi</h2>
     <form method="POST">
@@ -44,7 +43,7 @@ def blog():
     <h3>Əvvəlki Paylaşımlar:</h3>
     '''
 
-    for basliq, metn in reversed(postlar):  # Ən sonuncu yazı üstdə olsun
+    for basliq, metn in reversed(postlar): 
         html += f"<b>{basliq}</b><br>{metn}<hr>"
 
     return html
