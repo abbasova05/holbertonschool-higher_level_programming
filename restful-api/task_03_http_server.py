@@ -50,8 +50,8 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     with socketserver.TCPServer(("", PORT), SimpleAPIHandler) as httpd:
-        print(f"🚀 Server is running at http://localhost:{PORT}")
+        print(f" Server is running at http://localhost:{PORT}")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\n❌ Server stopped.")
+            print("\n Server stopped.")

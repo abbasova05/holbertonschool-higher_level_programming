@@ -38,7 +38,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="/home/10962@holbertonstudents.com/holbertonschool-higher_level_programming-1/restful-api/venv"
+=======
+VIRTUAL_ENV="/home/10962@holbertonstudents.com/holbertonschool-higher_level_programming/restful-api/venv"
+>>>>>>> 103432c (Save local changes before pulling)
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
