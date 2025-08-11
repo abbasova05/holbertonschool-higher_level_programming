@@ -22,13 +22,12 @@ def get_all_tasks():
 
 @app.route('/todo-list', methods=['POST'])
 def add_task():
-    new_task = request.json  # Məsələn: {"Wednesday": "Shopping"}
+    new_task = request.json  
     if not isinstance(new_task, dict) or len(new_task) != 1:
         return jsonify({"error": "Please provide a dictionary with a single key-value pair"}), 400
 
     tasks = read_tasks()
 
-    # Check unique key
     new_key = list(new_task.keys())[0]
     for task in tasks:
         if new_key in task:

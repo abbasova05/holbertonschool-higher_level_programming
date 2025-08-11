@@ -19,8 +19,6 @@ def home():
     </form>
     '''
 
-
-
 def post():
     ad = request.form.get("ad")
     return f"salam, {ad}!"
