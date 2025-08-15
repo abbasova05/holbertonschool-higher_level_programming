@@ -7,13 +7,11 @@ app = Flask(__name__)
 CSV_FILE = "notes.csv"
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-# CSV yoxdursa başlıq yaz
 if not os.path.exists(CSV_FILE):
     with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["ad", "mesaj", "tarix"])
 
-# Qeydləri oxuma funksiyası
 def read_notes():
     notes = []
     with open(CSV_FILE, "r", encoding="utf-8") as f:
@@ -39,11 +37,9 @@ def notes():
 
         return jsonify({"success": True, "tarix": now})
 
-    # GET zamanı tarixə görə yeni → köhnə sıralama
     notes = read_notes()
     notes.sort(key=lambda x: x["tarix_obj"], reverse=True)
 
-    # datetime obyektini çıxar, yalnız string qaytar
     for n in notes:
         n.pop("tarix_obj")
     return jsonify(notes)

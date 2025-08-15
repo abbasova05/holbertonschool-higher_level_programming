@@ -12,7 +12,6 @@ def home():
     <a href="/elaqe">Əlaqə</a>
     """
 
-# Haqqımda səhifəsi
 @app.route("/haqqinda")
 def haqqinda():
     return """
@@ -21,7 +20,6 @@ def haqqinda():
     <a href="/">Geri qayıt</a>
     """
 
-# Əlaqə səhifəsi
 @app.route("/elaqe")
 def elaqe():
     return """
@@ -30,6 +28,5 @@ def elaqe():
     <a href="/">Geri qayıt</a>
     """
 
-# Serveri işə sal
 if __name__ == "__main__":
     app.run(port=5013, debug=True)

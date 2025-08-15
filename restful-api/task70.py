@@ -11,7 +11,7 @@ html = '''
     <title>Restoran Rəyləri</title>
 </head>
 <body>
-    <h2>🍲 Restoranımız haqqında fikrinizi bölüşün</h2>
+    <h2> Restoranımız haqqında fikrinizi bölüşün</h2>
     <form method="POST">
         <label>Adınız:</label><br>
         <input type="text" name="ad" required><br><br>
