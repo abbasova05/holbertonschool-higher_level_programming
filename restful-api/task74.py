@@ -23,7 +23,7 @@ html = '''
         <input type="text" name="kateqori" required><br><br>
 
         <label> Bu oyunu niye tovsiye edirsiniz </label><br>
-        <textarea> name="fikr" rows="5" cols="40" placeholder="Buraya sebebini yazin..." required></textarea><br><br>
+        <textarea name="fikr" rows="5" cols="40" placeholder="Buraya sebebini yazin..." required></textarea><br><br>
 
         <input type="submit" value="Gonder">
     </form>

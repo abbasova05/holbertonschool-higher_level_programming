@@ -53,7 +53,7 @@ def index():
         mesaj = "Tövsiyəniz qeyd edildi. Təşəkkürlər!"
     return render_template_string(html, mesaj=mesaj, ad=ad, film=film, fikr=fikr)
 
-@app.route('/update', methods=['PUT'])
+@app.route('/', methods=['PUT'])
 def update():
     data = request.get_json()
     ad = data.get('ad')
@@ -62,7 +62,7 @@ def update():
     yaz_film(ad, film, fikr)
     return {'mesaj': 'Məlumat PUT metodu ilə alındı və qeyd edildi.'}, 200
 
-@app.route('/delete', methods=['DELETE'])
+@app.route('/', methods=['DELETE'])
 def delete():
     data = request.get_json()
     ad = data.get('ad')
